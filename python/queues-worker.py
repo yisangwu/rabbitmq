@@ -1,7 +1,7 @@
 # coding=utf8
 """
 Work Queues
-worker
+worker receive message
 """
 
 import time
@@ -14,14 +14,12 @@ connection = pika.BlockingConnection(pika.ConnectionParameters(
     host='192.168.50.83', credentials=credentials))
 
 channel = connection.channel()
-channel.queue_declare(queue='queues_py')
+channel.queue_declare(queue='queues_py_x', durable=True)
 
 
 def callback(ch, method, properties, body):
-    """[summary]
-
-    [description]
-
+    """
+    callback
     Arguments:
             channel: pika.Channel
             method: pika.spec.Basic.Deliver
@@ -33,8 +31,8 @@ def callback(ch, method, properties, body):
     print(" [x] Done")
     ch.basic_ack(delivery_tag=method.delivery_tag)
 
-
-channel.basic_consume(queue='queues_py', on_message_callback=callback)
+channel.basic_qos(prefetch_count=1)
+channel.basic_consume(queue='queues_py_x', on_message_callback=callback)
 channel.start_consuming()
 
 '''
