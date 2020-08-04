@@ -1,6 +1,7 @@
 # coding=utf8
 """
 rabbitmq sender
+https://github.com/rabbitmq/rabbitmq-tutorials
 https://www.rabbitmq.com/tutorials/tutorial-one-python.html
 
         hello

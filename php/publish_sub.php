@@ -5,6 +5,7 @@
  * 发布／订阅
  * Publish/Subscribe
  * received
+ * https://github.com/rabbitmq/rabbitmq-tutorials
  * https://www.rabbitmq.com/tutorials/tutorial-three-php.html
  * 
  * https://xiaoxiami.gitbook.io/rabbitmq_into_chinese_php/ying-yong-jiao-cheng/php-ban/3-publish_subscribe.md
@@ -23,6 +24,8 @@ use PhpAmqpLib\Connection\AMQPStreamConnection;
 $connection = new AMQPStreamConnection('192.168.50.83', 5672, 'admin', 'admin');
 $channel = $connection->channel();
 
+# 创建一个fanout类型的交换机，命名为logs
+# 扇型交换机（fanout），它把消息发送给它所知道的所有队列
 $channel->exchange_declare('logs', 'fanout', false, false, false);
 
 # 定义临时队列
