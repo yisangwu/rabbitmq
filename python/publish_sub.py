@@ -23,6 +23,8 @@ channel = connection.channel()
 # 扇型交换机（fanout exchange），它把消息发送给它所知道的所有队列
 channel.exchange_declare(exchange='logs', exchange_type='fanout')
 
+# 定义临时队列
+# 当与消费者（consumer）断开连接的时候，这个队列被立即删除
 result = channel.queue_declare(queue='', exclusive=True)
 queue_name = result.method.queue
 

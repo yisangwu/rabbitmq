@@ -24,6 +24,9 @@ connection = pika.BlockingConnection(
 channel = connection.channel()
 
 channel.exchange_declare(exchange='direct_logs_x', exchange_type='direct')
+
+# 定义临时队列
+# 当与消费者（consumer）断开连接的时候，这个队列被立即删除
 result = channel.queue_declare(queue='', exclusive=True)
 queue_name = result.method.queue
 
@@ -47,7 +50,8 @@ channel.start_consuming()
 
 
 '''
->python python\routing_received.py info warning
+>python python\routing_received.py info 接收单个
+>python python\routing_received.py info warning  接收多个
 [Routing received]:warning b'aaaa'
 [Routing received]:info b'aaaa-a-a-a'
 [Routing received]:info b'aaaa-a-a-a-a11313131'
