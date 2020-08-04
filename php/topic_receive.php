@@ -11,6 +11,8 @@ https://xiaoxiami.gitbook.io/rabbitmq_into_chinese_php/ying-yong-jiao-cheng/php-
 * (星号) 用来表示一个单词.
 # (井号) 用来表示任意数量（零个或多个）单词。
 
+当一个队列的绑定键为 "#"（井号） 的时候，这个队列将会无视消息的路由键，接收所有的消息。
+当 * (星号) 和 # (井号) 这两个特殊字符都未在绑定键中出现的时候，此时主题交换机就拥有的直连交换机的行为。
  */
 
 defined('DS') or define('DS', DIRECTORY_SEPARATOR);
