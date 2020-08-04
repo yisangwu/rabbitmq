@@ -1,6 +1,12 @@
 # coding=utf8
 """
 rabbitmq sender
+https://www.rabbitmq.com/tutorials/tutorial-one-python.html
+
+        hello
+(P) ->[][][][][] -> (C)
+
+ # rabbitmqctl list_queues
 """
 
 import pika
@@ -14,10 +20,10 @@ connection = pika.BlockingConnection(
 
 channel = connection.channel()
 
-# 创建一个名为"hello"的队列用来将消息投递进去
+# 创建一个名为"hello-py"的队列用来将消息投递进去
 channel.queue_declare(queue='hello-py')
 
-# exchange 交换机， 空字符串表示的默认交换机
+# exchange 交换机， 空字符串代表默认或者匿名交换机
 # routing_key 队列名字
 channel.basic_publish(exchange='', routing_key='hello-py',
                       body='Hello World Python!')

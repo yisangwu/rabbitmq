@@ -1,7 +1,13 @@
 # coding=utf8
 """
 rabbitmq received
+https://www.rabbitmq.com/tutorials/tutorial-one-python.html
+
+        hello
+(P) ->[][][][][] -> (C)
+ # rabbitmqctl list_queues
 """
+
 import pika
 
 credentials = pika.PlainCredentials('admin', 'admin')

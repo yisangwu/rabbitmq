@@ -1,8 +1,20 @@
 <?php
+/**
+ * rabbitmq
+ * received
+ * 
+ * https://www.rabbitmq.com/tutorials/tutorial-one-php.html
+ * https://xiaoxiami.gitbook.io/rabbitmq_into_chinese_php/ying-yong-jiao-cheng/php-ban/1-hello_world
+ * https://github.com/rabbitmq/rabbitmq-tutorials/blob/master/php/send.php
+ *
+ *        hello
+ *(P) ->[][][][][] -> (C)
+ *
+  # rabbitmqctl list_queues
+ */
 
-// https://www.rabbitmq.com/tutorials/tutorial-one-php.html
-
-require_once __DIR__ . '/vendor/autoload.php';
+defined('DS') or define('DS', DIRECTORY_SEPARATOR);
+require_once __DIR__ .  DS. 'vendor'.DS.'autoload.php';
 
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 
