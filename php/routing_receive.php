@@ -12,11 +12,20 @@
 (P) -> {x}-----
          |     \
          |----- [][][][][] -> (C2)
+直连交换机（direct exchange）:
+交换机将会对绑定键（binding key）和路由键（routing key）进行精确匹配，从而确定消息该分发到哪个队列
+
  */
 
 
-// php -f php\routing_receive.php error/info/warning
-// 
+/*
+php -f php\routing_receive.php warning 接收单个
+php -f php\routing_receive.php warning info  接收多个
+[Routing Receive]:warning,VVVVVV--1111111111111111
+[Routing Receive]:info,VVVVVV--1111111111111111
+ */
+
+
 defined('DS') or define('DS', DIRECTORY_SEPARATOR);
 require_once __DIR__. DS . 'vendor' .DS.'autoload.php';
 

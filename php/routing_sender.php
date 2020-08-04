@@ -13,8 +13,11 @@
 (P) -> {x}-----
          |     \
          |----- [][][][][] -> (C2)
+直连交换机（direct exchange）:
+交换机将会对绑定键（binding key）和路由键（routing key）进行精确匹配，从而确定消息该分发到哪个队列
  */
 
+// >php -f php\routing_sender.php info VVVVVV 1111111111111111
 # php -f xx.php[0] info/error/warning[1] message11111[2]
 # 
 defined('DS') or define('DS', DIRECTORY_SEPARATOR);
